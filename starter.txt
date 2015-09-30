@@ -1,0 +1,3 @@
+OK so tyson says we should get a AWS and then set it up exactly like our web server.
+We should develope on our own computers, push to git when its working on our own system, then go to the AWS server and pull from there and make sure it works from there too.
+We can have our own accounts on the AWS but when you push to git it asks you what your username and password are each time...
