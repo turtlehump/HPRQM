@@ -51,7 +51,6 @@ GEM
       sass (~> 3.2)
     builder (3.2.2)
     byebug (6.0.2)
-    cancancan (1.13.1)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -125,7 +124,6 @@ GEM
     rdoc (4.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
-    rolify (4.1.1)
     sass (3.4.18)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -171,14 +169,12 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (~> 3.2.0)
   byebug
-  cancancan
   coffee-rails (~> 4.1.0)
   devise
   jbuilder (~> 2.0)
   jquery-rails
   quiet_assets
   rails (= 4.2.4)
-  rolify
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

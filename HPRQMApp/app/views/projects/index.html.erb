@@ -3,7 +3,9 @@
 <p> a list of projects </p>
 
 <% @projects.each do |project| %>
-  <%= project.project_name %><br>
+  <%= project.project_name %>
+  <%= link_to "Show", project %><br>
 <% end %>
-
+<% if current_user.super_admin %>
 <%= link_to "create a project", new_project_path %>
+<% end %>
