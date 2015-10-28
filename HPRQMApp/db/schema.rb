@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027182712) do
+ActiveRecord::Schema.define(version: 20151028020154) do
 
   create_table "dashboards", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "project_name", null: false
+    t.date     "end_date"
+    t.string   "ppm_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -31,6 +39,9 @@ ActiveRecord::Schema.define(version: 20151027182712) do
 
   create_table "users", force: :cascade do |t|
     t.string   "f_name",                              null: false
+    t.string   "m_name"
+    t.string   "l_name",                              null: false
+    t.integer  "user_id"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

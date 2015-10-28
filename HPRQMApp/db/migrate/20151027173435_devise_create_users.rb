@@ -1,7 +1,13 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
+      
+      ## HP user attributes
       t.string :f_name, null: false
+      t.string :m_name
+      t.string :l_name, null: false
+      t.integer :user_id
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
