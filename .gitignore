@@ -1,5 +1,6 @@
 #CUSTOM RULES BEGIN
 #add all custome files to ignore in here
+*.swp
 *.pem
 rqm_connect
 SETUP.txt
