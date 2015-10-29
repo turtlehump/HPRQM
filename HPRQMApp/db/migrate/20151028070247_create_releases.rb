@@ -5,6 +5,7 @@ class CreateReleases < ActiveRecord::Migration
       t.date :start_date, null: false
       t.date :end_date, null: false
       t.string :name, null: false
+      t.references :project, index: true, foreign_key: true, null: false
 
       t.timestamps null: false
     end

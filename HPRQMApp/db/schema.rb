@@ -51,9 +51,12 @@ ActiveRecord::Schema.define(version: 20151028071138) do
     t.date     "start_date",       null: false
     t.date     "end_date",         null: false
     t.string   "name",             null: false
+    t.integer  "project_id",       null: false
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
+
+  add_index "releases", ["project_id"], name: "index_releases_on_project_id"
 
   create_table "reviews", force: :cascade do |t|
     t.datetime "created_at", null: false
