@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
   root to: 'dashboard#index'
-  devise_for :users
+  devise_for :users, path_prefix: 'hp'
+  resources :users
   resources :projects
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
