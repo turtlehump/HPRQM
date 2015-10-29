@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028070247) do
+ActiveRecord::Schema.define(version: 20151028071138) do
 
   create_table "admins", force: :cascade do |t|
     t.integer  "project_id"
@@ -55,6 +55,11 @@ ActiveRecord::Schema.define(version: 20151028070247) do
     t.datetime "updated_at",       null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "submitters", force: :cascade do |t|
     t.integer  "project_id"
     t.integer  "user_id"
@@ -69,7 +74,7 @@ ActiveRecord::Schema.define(version: 20151028070247) do
     t.string   "f_name",                                 null: false
     t.string   "m_name"
     t.string   "l_name",                                 null: false
-    t.integer  "user_id"
+    t.integer  "employee_num"
     t.boolean  "super_admin",            default: false, null: false
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
