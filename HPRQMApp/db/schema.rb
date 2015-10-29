@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20151028071138) do
     t.string   "f_name",                                 null: false
     t.string   "m_name"
     t.string   "l_name",                                 null: false
-    t.integer  "user_id"
+    t.integer  "employee_num"
     t.boolean  "super_admin",            default: false, null: false
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
