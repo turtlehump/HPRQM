@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20151028071138) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "project_name", null: false
+    t.date     "start_date"
     t.date     "end_date"
     t.string   "ppm_id"
     t.datetime "created_at",   null: false

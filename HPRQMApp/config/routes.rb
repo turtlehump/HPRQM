@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   root to: 'dashboard#index'
   devise_for :users, path_prefix: 'hp'
   resources :users
-  resources :projects
+  resources :projects do 
+    resources :admins, shallow: true
+    resources :approvers, shallow: true
+    resources :submitters, shallow: true
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

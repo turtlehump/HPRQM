@@ -12,7 +12,7 @@ users = User.create(
 projects = Project.create(
   [
     { project_name: "Proj1", end_date: "", ppm_id: "What is this?"},
-    { project_name: "Proj2", end_date: "", ppm_id: "What is this?"},
+    { project_name: "Printer Drivers", end_date: "", ppm_id: "8675309"},
     { project_name: "Proj3", end_date: "", ppm_id: "What is this?"},
     { project_name: "Proj4", end_date: "", ppm_id: "What is this?"},
     { project_name: "Proj5", end_date: "", ppm_id: "What is this?"},
