@@ -6,7 +6,6 @@ class CreateProjects < ActiveRecord::Migration
       t.date :end_date#, null: false
       t.string :ppm_id
 
-
       t.timestamps null: false
     end
   end
