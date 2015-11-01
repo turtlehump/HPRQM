@@ -60,8 +60,9 @@ ActiveRecord::Schema.define(version: 20151028071138) do
   add_index "releases", ["project_id"], name: "index_releases_on_project_id"
 
   create_table "reviews", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "review_name", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "submitters", force: :cascade do |t|
