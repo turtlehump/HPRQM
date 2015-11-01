@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question: MyString
+  ans_type: 
+  ans_string: MyString
+  ans_int: 
+  ans_bool: 
+
+two:
+  question: MyString
+  ans_type: 
+  ans_string: MyString
+  ans_int: 
+  ans_bool: 

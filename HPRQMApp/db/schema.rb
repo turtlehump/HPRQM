@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028071138) do
+ActiveRecord::Schema.define(version: 20151101080249) do
 
   create_table "admins", force: :cascade do |t|
     t.integer  "project_id"
@@ -47,6 +47,26 @@ ActiveRecord::Schema.define(version: 20151028071138) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.string   "question",   null: false
+    t.integer  "ans_type"
+    t.string   "ans_string"
+    t.integer  "ans_int"
+    t.boolean  "ans_bool"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "release_reviews", force: :cascade do |t|
+    t.integer  "release_id"
+    t.integer  "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "release_reviews", ["release_id"], name: "index_release_reviews_on_release_id"
+  add_index "release_reviews", ["review_id"], name: "index_release_reviews_on_review_id"
+
   create_table "releases", force: :cascade do |t|
     t.string   "sdlcm_release_id", null: false
     t.date     "start_date",       null: false
@@ -58,6 +78,16 @@ ActiveRecord::Schema.define(version: 20151028071138) do
   end
 
   add_index "releases", ["project_id"], name: "index_releases_on_project_id"
+
+  create_table "review_questions", force: :cascade do |t|
+    t.integer  "review_id",   null: false
+    t.integer  "question_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "review_questions", ["question_id"], name: "index_review_questions_on_question_id"
+  add_index "review_questions", ["review_id"], name: "index_review_questions_on_review_id"
 
   create_table "reviews", force: :cascade do |t|
     t.string   "review_name", null: false
