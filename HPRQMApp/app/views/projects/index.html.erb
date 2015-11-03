@@ -9,6 +9,7 @@
 
 <% @projects.each do |project| %>
   <%= project.project_name %>
-  <%= link_to "Show", project %><br>
+  <%= link_to "Show", project %> |
+  <%= link_to "Edit", edit_project_path(project) %><br>
 <% end %>
 

@@ -16,6 +16,17 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
 
+  def edit
+  end
+
+  def update
+    if @project.update(project_params)
+      redirect_to @project, notice: 'Project was updated.'
+    else
+      render :edit
+    end
+  end
+
   def create
     @project = Project.new(project_params)
 
