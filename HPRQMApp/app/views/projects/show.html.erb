@@ -1,5 +1,24 @@
-<h1> A project </h1>
+<h1>Name: <%= @project.project_name %></h1><br>
+<h4>End Date:<%= @project.end_date %></h4><br>
+<h4>PPM ID:<%= @project.ppm_id %></h4><br>
+<br>
 
-<%= @project.project_name %><br>
-<%= @project.end_date %><br>
-<%= @project.ppm_id %><br>
+<h1>Admins:<h1>
+<% @ads.each do |user| %>
+  <h4><%= user.name %></h4>
+  <br>
+<%end%>
+<br>
+
+<h1>Submitters:<h1>
+<% @subs.each do |user| %>
+  <h4><%= user.name %></h4>
+  <br>
+<%end%>
+<br>
+
+<h1>Approvers:<h1>
+<% @apps.each do |user| %>
+  <h4><%= user.name %></h4>
+  <br>
+<%end%>

@@ -7,6 +7,9 @@ class ProjectsController < ApplicationController
 
   def show
     #work is done in before_action
+    @ads = @project.admins.map { |connection| connection.user }
+    @apps = @project.approvers.map { |connection| connection.user }
+    @subs = @project.submitters.map { |connection| connection.user }
   end
 
   def new
