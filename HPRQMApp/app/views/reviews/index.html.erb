@@ -1,0 +1,12 @@
+<h1> Reviews </h1>
+
+<p> a list of all reviews </p>
+<% if current_user.super_admin %>
+  <%= link_to "create a Review", new_review_path %><br>
+<% end %>
+
+<% @reviews.each do |review| %>
+  <%= review.review_name %>
+  <%= link_to "Show", review %>
+  <%= link_to "Edit", edit_review_path %><br>
+  <% end %>

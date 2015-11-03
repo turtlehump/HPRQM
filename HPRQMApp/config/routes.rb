@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :admins, shallow: true
     resources :approvers, shallow: true
     resources :submitters, shallow: true
+    resources :realeases, shallow: true
   end
+  resources :reviews
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
