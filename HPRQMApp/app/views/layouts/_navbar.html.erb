@@ -1,6 +1,29 @@
 <div id="user_nav">
   <% if user_signed_in? %>
-    <%= link_to image_tag( root_url + "/images/hp_logo.png", size: "100x100"), root_path %>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+ <%= link_to image_tag( root_url + "/images/hp_logo.png", size: "100x100"), root_path %>
+    </div>
+    <div>
+      <a class="navbar-brand" > Dashboard</a>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="#">Releases</a></li>
+        <li><a href="/reviews">Reviews</a></li>
+        <li><a href="#">Review Questions</a></li>
+      </ul>
+
+	<ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Account Details</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-eject"></span> Logout</a></li>
+      </ul>  
+    </div>
+  </div>
+</nav>
+
     Signed in as <%= current_user.email %>. Not you?
     <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
     <%= link_to "Account Details", edit_user_registration_path %>
