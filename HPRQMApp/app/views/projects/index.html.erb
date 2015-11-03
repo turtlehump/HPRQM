@@ -1,15 +1,34 @@
-<h1> Projects </h1>
-
-<p> a list of projects </p>
 <% if current_user.super_admin %>
 <%= link_to "create a project", new_project_path %>
 <% end %>
 <br>
 <br>
 
-<% @projects.each do |project| %>
-  <%= project.project_name %>
-  <%= link_to "Show", project %> |
-  <%= link_to "Edit", edit_project_path(project) %><br>
+
+<div class="container">
+  <h1>Projects</h1>
+  <p>Projects you are tied to:</p>            
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Project Name:</th>
+        <th>Show:</th>
+        <th>Edit:</th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+	<% @projects.each do |project| %>	
+      <tr>
+         <td> <%= project.project_name %> </td>
+         <td> <%= link_to "Show", project %> </td>
+         <td> <%= link_to "Edit", edit_project_path(project) %> </td>
+      </tr>
+    </tbody>
 <% end %>
+
+  </table>
+</div>
+
 
