@@ -10,7 +10,7 @@ int main()
   cout << "    { f_name: \"Super\", l_name: \"Admin\", employee_num: 420, super_admin: true, email: 'sa@hp.com', password:\"sa\"}," << endl;
   for(int i = 0; i < num_users; i++)
   {
-    cout << "    { f_name: \"User\", l_name: " << i << ", employee_num: " << i << ", super_admin: true, email: '" << i << "@hp.com', password:\"" << i << "\"}";
+    cout << "    { f_name: \"User\", l_name: \"" << i << "\", employee_num: " << i << ", super_admin: false, email: '" << i << "@hp.com', password:\"" << i << "\"}";
     if(i <= num_users - 1)
       cout << ",";
     cout << endl;
