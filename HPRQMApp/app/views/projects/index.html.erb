@@ -4,6 +4,8 @@
 <% if current_user.super_admin %>
 <%= link_to "create a project", new_project_path %>
 <% end %>
+<br>
+<br>
 
 <% @projects.each do |project| %>
   <%= project.project_name %>
