@@ -1,34 +1,54 @@
 <div id="main-container" class="container">
 <div class="row">
-<div id="blank_space" class="col-xs-5">
+<div id="left_space" class="col-md-4">
 </div>
-<div id="content" class="col-xs-7">
-<h2>Log in</h2>
+<div id="content" class="col-md-4">
 
+<div class="well well-md">
+
+<div class="col-md-offset-4 col-md-8">
+<h2>Log in</h2>
+</div>
+
+
+<div class="col-md-offset-2 col-md-10">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+</div>
 
+
+<div class="col-md-offset-2 col-md-10">
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
+</div>
 
+
+<div class="col-md-offset-2 col-md-10">
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end -%>
+</div>
+
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+	<button type="submit" class="btn btn-primary">Submit</button>
   </div>
 
 
 </div>
+</div>
+</div>
+
+<div id="right_space" class="col-md-4"></div>
+
 </div>
 </div>
 <% end %>
