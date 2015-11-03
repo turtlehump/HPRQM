@@ -1,5 +1,6 @@
 <div id="user_nav">
   <% if user_signed_in? %>
+    <%= link_to image_tag( root_url + "/images/hp_logo.png", size: "100x100"), root_path %>
     Signed in as <%= current_user.email %>. Not you?
     <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
     <%= link_to "Account Details", edit_user_registration_path %>
