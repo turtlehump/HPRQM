@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Questioon.new(question_params)
+    @question = Question.new(question_params)
 
     if @question.save
       redirect_to @question
@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to @question, notice: 'Review was successfully updated.'
+      redirect_to @question, notice: 'question was successfully updated.'
     else
       render :edit
     end
@@ -32,6 +32,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+
   end
 
   private
@@ -39,8 +40,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-  def question_parms
+  def question_params
     params.require(:question).permit(:question, :ans_type)
   end
-
 end
