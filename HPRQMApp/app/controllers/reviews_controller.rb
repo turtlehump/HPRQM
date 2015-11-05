@@ -40,6 +40,11 @@ class ReviewsController < ApplicationController
     redirect_to reviews_url
   end
 
+  #make path for this
+  def questions
+    #@questions = @review.questions
+  end
+
   private
   def set_review
     @review = Review.find(params[:id])

@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     resources :submitters, shallow: true
     resources :realeases, shallow: true
   end
-  resources :reviews
+  resources :reviews do
+    member do
+      get 'questions'
+    end
+  end
   resources :questions
 
   # The priority is based upon order of creation: first created -> highest priority.
