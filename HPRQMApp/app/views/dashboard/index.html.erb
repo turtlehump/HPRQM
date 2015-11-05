@@ -1,7 +1,8 @@
-
-
-<h1> dashboard </h1>
-<a href="/projects">Projects <span class="badge">1</span></a><br>
-<a href="/reviews">Reviews <span class="badge">1</span></a><br>
-<a href="#">Releases <span class="badge">2</span></a><br> 
-<a href="#">Review questions <span class="badge">2</span></a> 
+<%= link_to "Projects", projects_path %>
+<span class="badge"><%= @num_projects %></span><br>
+<%= link_to "Releases", projects_path %>
+<span class="badge"><%= @num_projects %></span><br>
+<%= link_to "Reviews", reviews_path %>
+<span class="badge"><%= @num_reviews %></span><br>
+<%= link_to "Questions", questions_path %>
+<span class="badge"><%= @num_questions %></span><br>
