@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101080249) do
+ActiveRecord::Schema.define(version: 20151106075358) do
 
   create_table "admins", force: :cascade do |t|
     t.integer  "project_id"
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(version: 20151101080249) do
 
   add_index "admins", ["project_id"], name: "index_admins_on_project_id"
   add_index "admins", ["user_id"], name: "index_admins_on_user_id"
+
+  create_table "answers", force: :cascade do |t|
+    t.integer  "type"
+    t.string   "str"
+    t.integer  "int"
+    t.boolean  "bool"
+    t.integer  "question_id"
+    t.integer  "project_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "answers", ["project_id"], name: "index_answers_on_project_id"
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
   create_table "approvers", force: :cascade do |t|
     t.integer  "project_id"
@@ -48,13 +62,10 @@ ActiveRecord::Schema.define(version: 20151101080249) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string   "question",   null: false
-    t.integer  "ans_type"
-    t.string   "ans_string"
-    t.integer  "ans_int"
-    t.boolean  "ans_bool"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "question",    null: false
+    t.integer  "answer_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "release_reviews", force: :cascade do |t|
