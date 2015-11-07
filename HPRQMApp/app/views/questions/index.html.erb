@@ -1,0 +1,15 @@
+<h1> Questions </h1>
+
+<p> a list of all questions </p>
+
+<% if current_user.super_admin %>
+  <%= link_to "create a Question", new_question_path %><br>
+<% end %>
+<br>
+<% @questions.each do |q| %>
+  <%= q.question %> |
+  <%= q.ans_type %> |
+  <%= link_to "Show", q %> |
+  <%= link_to "Edit", edit_question_path(q) %> |
+  <%= link_to "Delete", q, method: :delete, data: {confirm: "Are you sure?" } %><br>
+<% end %>
