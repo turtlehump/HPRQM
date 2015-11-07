@@ -754,3 +754,10 @@ reviews = Review.create(
     { review_name: "Complete RE Close Out Review" }
   ]
 )
+questions = Question.create(
+  [
+    { question: "Whats your name?" },
+    { question: "Whats your age?" },
+    { question: "Are you a guy?" }
+  ]
+)
