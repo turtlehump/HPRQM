@@ -1,7 +1,7 @@
 a = Answer.new
-a.type = "string"
+a.ans_type = "string"
 a.inspect
-a.type = "int"
+a.ans_type = "int"
 a.inspect
-a.type = "bool"
+a.ans_type = "bool"
 a.inspect
