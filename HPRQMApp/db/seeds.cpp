@@ -19,7 +19,6 @@ int main()
   cout << ")" << endl;
   cout <<  endl;
 
-
   cout << "projects = Project.create(" << endl;
   cout << "  [" << endl;
   for(int i = 1; i <= num_users; i++)
@@ -32,7 +31,6 @@ int main()
   cout << "  ]" << endl;
   cout << ")" << endl;
   cout << endl;
-
 
   cout << "admins = Admin.create(" << endl;
   cout << "  [" << endl;
@@ -103,6 +101,14 @@ int main()
   cout << "    { review_name: \"Complete RE Implementation Review\" }," << endl;
   cout << "    { review_name: \"Attach all remaining SDLCM artifacts\" }," << endl;
   cout << "    { review_name: \"Complete RE Close Out Review\" }" << endl;
+  cout << "  ]" << endl;
+  cout << ")" << endl;
+
+  cout << "questions = Question.create(" << endl;
+  cout << "  [" << endl;
+  cout << "    { question: \"Whats your name?\" }," << endl;
+  cout << "    { question: \"Whats your age?\" }," << endl;
+  cout << "    { question: \"Are you a guy?\" }" << endl;
   cout << "  ]" << endl;
   cout << ")" << endl;
 
