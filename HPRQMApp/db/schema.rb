@@ -29,13 +29,13 @@ ActiveRecord::Schema.define(version: 20151106075358) do
     t.integer  "int"
     t.boolean  "bool"
     t.integer  "question_id"
-    t.integer  "project_id"
+    t.integer  "release_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
 
-  add_index "answers", ["project_id"], name: "index_answers_on_project_id"
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["release_id"], name: "index_answers_on_release_id"
 
   create_table "approvers", force: :cascade do |t|
     t.integer  "project_id"

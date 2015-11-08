@@ -6,7 +6,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.integer :int
       t.boolean :bool
       t.references :question, index: true, foreign_key: true
-      t.references :project, index: true, foreign_key: true
+      t.references :release, index: true, foreign_key: true
 
       t.timestamps null: false
     end

@@ -3,4 +3,5 @@ class Release < ActiveRecord::Base
   # a release cares about its project because
   # a releasecan only live within a project
   has_many :release_reviews, dependent: :destroy
+  has_many :answers, dependent: :destroy
 end
