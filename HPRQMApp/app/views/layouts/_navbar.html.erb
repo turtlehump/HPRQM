@@ -37,7 +37,7 @@
        <span class"glyphicon glyphicon-eject"></span>
 	  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign Out
             <ul class="dropdown-menu">
-              <li><%= link_to "Confirm", destroy_user_session_path, method: :delete %></a></li>
+              <li><%= link_to "<p class=\"text-center\"><strong>Confirm?</strong></p>".html_safe, destroy_user_session_path, method: :delete %></a></li>
 	    </ul>
 	</li>
       </ul> 
