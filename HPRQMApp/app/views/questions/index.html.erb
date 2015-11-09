@@ -11,5 +11,5 @@
   <%= q.ans_type %> |
   <%= link_to "Show", q %> |
   <%= link_to "Edit", edit_question_path(q) %> |
-  <%= link_to "Delete", review, method: :delete, data: {confirm: "Are you sure?" } %><br>
+  <%= link_to "Delete", q, method: :delete, data: {confirm: "Are you sure?" } %><br>
 <% end %>
