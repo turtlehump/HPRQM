@@ -4,79 +4,82 @@
 <br>
 <br>
 
-<div class="container">
-  <h1>Projects</h1>
-  <p>Projects you are tied to:</p>            
-  <br>
-  <h4> PROJECTS YOU ARE AN ADMIN IN </h4>
+<% if @user.super_admin %>
   <table class="table table-hover">
     <thead>
       <tr>
         <th>Project Name:</th>
         <th>Show:</th>
-        <% if current_user.super_admin %>
-          <th>Edit:</th>
-        <% end %>
+        <th>Edit:</th>
       </tr>
     </thead>
     <tbody>
-      <% @user_ad_projs.each do |project| %>	
+      <% @user_projs.each do |project| %>	
       <tr>
         <td> <%= project.project_name %> </td>
         <td> <%= link_to "Show", project %> </td>
-        <% if current_user.super_admin %>
-          <td> <%= link_to "Edit", edit_project_path(project) %> </td>
-        <% end %>
+        <td> <%= link_to "Edit", edit_project_path(project) %> </td>
       </tr>
       <% end %>
     </tbody>
   </table>
-
-  <h4> PROJECTS YOU ARE AN APPROVER IN </h4>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Project Name:</th>
-        <th>Show:</th>
-        <% if current_user.super_admin %>
-          <th>Edit:</th>
+<% else %>
+  <div class="container">
+    <h1>Projects</h1>
+    <p>Projects you are tied to:</p>            
+    <br>
+    <h4> PROJECTS YOU ARE AN ADMIN IN </h4>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Project Name:</th>
+          <th>Show:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_ad_projs.each do |project| %>	
+        <tr>
+          <td> <%= project.project_name %> </td>
+          <td> <%= link_to "Show", project %> </td>
+        </tr>
         <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @user_ap_projs.each do |project| %>	
-      <tr>
-        <td> <%= project.project_name %> </td>
-        <td> <%= link_to "Show", project %> </td>
-        <% if current_user.super_admin %>
-          <td> <%= link_to "Edit", edit_project_path(project) %> </td>
+      </tbody>
+    </table>
+  
+    <h4> PROJECTS YOU ARE AN APPROVER IN </h4>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Project Name:</th>
+          <th>Show:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_ap_projs.each do |project| %>	
+        <tr>
+          <td> <%= project.project_name %> </td>
+          <td> <%= link_to "Show", project %> </td>
+        </tr>
         <% end %>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <h4> PROJECTS YOU ARE A SUBMITTER IN </h4>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Project Name:</th>
-        <th>Show:</th>
-        <% if current_user.super_admin %>
-          <th>Edit:</th>
+      </tbody>
+    </table>
+  
+    <h4> PROJECTS YOU ARE A SUBMITTER IN </h4>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Project Name:</th>
+          <th>Show:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_sub_projs.each do |project| %>	
+        <tr>
+          <td> <%= project.project_name %> </td>
+          <td> <%= link_to "Show", project %> </td>
+        </tr>
         <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @user_sub_projs.each do |project| %>	
-      <tr>
-        <td> <%= project.project_name %> </td>
-        <td> <%= link_to "Show", project %> </td>
-        <% if current_user.super_admin %>
-          <td> <%= link_to "Edit", edit_project_path(project) %> </td>
-        <% end %>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </tbody>
+    </table>
+  </div>
+<% end %>
