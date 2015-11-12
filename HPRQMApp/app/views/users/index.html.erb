@@ -1,1 +1,28 @@
 <h1> Users </h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>First</th>
+      <th>Middle</th>
+      <th>Last</th>
+      <th>EMP_ID</th>
+      <th>Email</th>
+      <th>Admin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.f_name %></td>
+        <td><%= user.m_name %></td>
+        <td><%= user.l_name %></td>
+        <td><%= user.employee_num %></td>
+        <td><%= user.email %></td>
+        <td><%= user.super_admin %></td>
+        <td><%= link_to "Show", user %></td>
+        <td><%= link_to "Edit", user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
