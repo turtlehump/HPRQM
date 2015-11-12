@@ -5,9 +5,27 @@
   <%= link_to "create a Review", new_review_path %><br>
 <% end %>
 <br>
-<% @reviews.each do |review| %>
-  <%= review.review_name %> |
-  <%= link_to "Show", review %> |
-  <%= link_to "Edit", edit_review_path(review) %> |
-  <%= link_to "Delete", review, method: :delete, data: {confirm: "Are you sure?" }%><br>
-<% end %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Review</th>
+      <th>Show</th>
+      <% if current_user.super_admin %>
+        <th>Edit</th>
+        <th>Delete</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reviews.each do |review| %>
+    <tr>
+      <td><%= review.review_name %></td>
+      <td><%= link_to "Show", review %></td>
+      <% if current_user.super_admin %>
+        <td><%= link_to "Edit", edit_review_path(review) %></td>
+        <td><%= link_to "Delete", review, method: :delete, data: {confirm: "Are you sure?" }%></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

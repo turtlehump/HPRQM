@@ -1,8 +1,10 @@
-<h1> A Review </h1>
+<h1>Review ID: <%= @review.id %></h1>
 
-<%= @review.review_name %><br>
-
-side bar navigation<br>
-<%= link_to "Add Questions", edit_review_path %><br>
-<%= link_to "Edit", edit_review_path %><br>
+<h4><%= @review.review_name %></h4>
+<h4>Description</h4>
+<p><%= @review.description %></p>
+<% if current_user.super_admin %>
+  <%= link_to "Add Questions", edit_review_path %><br>
+  <%= link_to "Edit", edit_review_path %><br>
+<% end %>
 <%= link_to "show Questions", questions_review_path %><br>

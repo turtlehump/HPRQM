@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20151106075358) do
 
   create_table "reviews", force: :cascade do |t|
     t.string   "review_name", null: false
+    t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
