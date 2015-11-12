@@ -10,9 +10,15 @@
 
 <%= render 'layouts/navbar' %>
 
+<div class="col-md-2">
+<%= render 'layouts/sidebar' %>
+</div>
+
+<div class="col-md-10">
 <%= yield %>
 
 <%= render 'layouts/footer' %>
+</div>
 
 </body>
 </html>

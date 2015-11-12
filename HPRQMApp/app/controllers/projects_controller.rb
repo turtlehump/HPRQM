@@ -3,6 +3,15 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+    @user = current_user
+    if @user.super_admin
+      @user_projs = @projects
+    else
+      @user_ad_projs = @user.admins.map { |connection| connection.project }
+      @user_ap_projs = @user.approvers.map { |connection| connection.project }
+      @user_sub_projs = @user.submitters.map { |connection| connection.project }
+      @user_projs = @user_ad_projs + @user_ap_projs + @user_sub_projs
+    end
   end
 
   def show
