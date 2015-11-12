@@ -16,6 +16,15 @@ class ApplicationController < ActionController::Base
 
   def authenticate!
     authenticate_user!
+    #only super_admin can edit users
+    if params[:controller] == 'users' && (params[:action] == 'edit' || params[:action] == 'update' || params[:action] == 'new' || params[:action] == 'destroy' || params[:action] == 'create')
+      if current_user.super_admin
+        return
+      else
+        redirect_to root_url, notice: "Page not found."
+      end
+    end
+
     #only super_admin can edit reviews
     if params[:controller] == 'reviews' && (params[:action] == 'edit' || params[:action] == 'update' || params[:action] == 'new' || params[:action] == 'destroy' || params[:action] == 'create')
       if current_user.super_admin
@@ -24,6 +33,7 @@ class ApplicationController < ActionController::Base
         redirect_to root_url, notice: "Page not found."
       end
     end
+
     #only super_admin can edit projects
     if params[:controller] == 'projects' && (params[:action] == 'edit' || params[:action] == 'update' || params[:action] == 'destroy')
       #current_project = Project.find(params[:id])
