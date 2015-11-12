@@ -51,7 +51,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:review_name)
+    params.require(:review).permit(:review_name, :description)
   end
   
 end

@@ -16,8 +16,9 @@ class ApplicationController < ActionController::Base
 
   def authenticate!
     authenticate_user!
+    
     #only super_admin can edit users
-    if params[:controller] == 'users' && (params[:action] == 'edit' || params[:action] == 'update' || params[:action] == 'new' || params[:action] == 'destroy' || params[:action] == 'create')
+    if params[:controller] == 'users' && (params[:action] == 'edit' || params[:action] == 'update' || params[:action] == 'new' || params[:action] == 'destroy' || params[:action] == 'create' || params[:action] == 'index' || params[:action] == 'show')
       if current_user.super_admin
         return
       else
