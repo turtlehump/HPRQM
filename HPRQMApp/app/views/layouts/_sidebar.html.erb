@@ -6,6 +6,8 @@
             <ul class="nav">
 	      <li><%= image_tag( root_url + "/images/hp_logo.png", size: "100x100") %></li>
 
+	      <li><a href="javascript:history.back()" class="glyphicon glyphicon-arrow-left"> Back </a></li><br>
+
 	      <% if current_page?(root_path) %>
 		<li><%= link_to "Projects", projects_path %></a></li>
 		<li><%= link_to "Reviews", reviews_path %></a></li>
