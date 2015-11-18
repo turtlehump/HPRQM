@@ -20,6 +20,7 @@
   <%= u.label :email, 'Email' %><br>
   <%= u.email_field :email %><br>
   <%= u.label :super_admin, "Make #{@user.name} a super admin?" %><br>
+  <p>With great power comes great responsibility.<p>
   <%= u.radio_button :super_admin, "true" %> Super Admin<br>
   <%= u.radio_button :super_admin, "false" %> Normal User<br>
   <%= u.submit %>

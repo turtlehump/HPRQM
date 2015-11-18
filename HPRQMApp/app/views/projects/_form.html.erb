@@ -1,6 +1,8 @@
 <%= form_for(@project) do |project| %>
   <%= project.label :project_name %>
   <%= project.text_field :project_name %><br>
+  <%= project.label :start_date %>
+  <%= project.date_field :start_date %><br>
   <%= project.label :end_date %>
   <%= project.date_field :end_date %><br>
   <%= project.label :ppm_id %>

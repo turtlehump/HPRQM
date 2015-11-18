@@ -5,12 +5,13 @@ using namespace std;
 int main()
 {
   int num_users = 100;
+  cout << "load \"#{Rails.root}/db/name.rb\"" << endl;
   cout << "users = User.create(" << endl;
   cout << "  [" << endl;
-  cout << "    { f_name: \"Super\", l_name: \"Admin\", employee_num: 420, super_admin: true, email: 'sa@hp.com', password:\"sa\"}," << endl;
+  cout << "    { f_name: \"#{first_name}\", m_name: \"#{first_name}\", l_name: \"#{last_name}\", employee_num: 420, super_admin: true, email: 'sa@hp.com', password:\"sa\"}," << endl;
   for(int i = 0; i < num_users; i++)
   {
-    cout << "    { f_name: \"User\", l_name: \"" << i << "\", employee_num: " << i << ", super_admin: false, email: '" << i << "@hp.com', password:\"" << i << "\"}";
+    cout << "    { f_name: \"#{first_name}\", m_name: \"#{first_name}\", l_name: \"#{last_name}\", employee_num: " << i << ", super_admin: false, email: '" << i << "@hp.com', password:\"" << i << "\"}";
     if(i <= num_users - 1)
       cout << ",";
     cout << endl;
