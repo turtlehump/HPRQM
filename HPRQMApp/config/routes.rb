@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :realeases, shallow: true
   end
   resources :reviews do
+    resources :review_questions, shallow: true
     member do
       get 'questions'
     end

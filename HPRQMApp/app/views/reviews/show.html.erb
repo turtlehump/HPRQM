@@ -3,8 +3,16 @@
 <h4><%= @review.review_name %></h4>
 <h4>Description</h4>
 <p><%= @review.description %></p>
-<% if current_user.super_admin %>
-  <%= link_to "Add Questions", edit_review_path %><br>
-  <%= link_to "Edit", edit_review_path %><br>
+<h4>Review Questions</h4>
+<% @review.review_questions.each do |question| %>
+  <% if not question.new_record? %>
+    <%= question.question.question %>
+    <% if current_user.super_admin %>
+      <%= link_to 'Remove', question, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+    <% end %>
+  <% end %>
 <% end %>
-<%= link_to "show Questions", questions_review_path %><br>
+<% if current_user.super_admin %>
+  <%= render 'review_question/form' %>
+  <%= link_to "Edit Review", edit_review_path %><br>
+<% end %>

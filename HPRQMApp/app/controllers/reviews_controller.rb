@@ -7,6 +7,9 @@ class ReviewsController < ApplicationController
 
   def show
     #done in before_action
+    @review_questions = @review.questions
+    @review_question = @review.review_questions.new
+    @review_question_add = Question.all - @review_questions
   end
 
   def edit

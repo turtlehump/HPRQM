@@ -1,0 +1,15 @@
+<%= form_for([@review, @review_question]) do |q| %>
+  <% if @review_question.errors.any? %>
+    <h2><%= pluralize(@review_question.errors.count, "error") %> prohibited you from adding a question.</h2>
+    <ul>
+      <% @review_question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <% if @review_question_add.count > 0 %>
+    <%= q.select :question_id, options_from_collection_for_select(@review_question_add, 'id', 'question') %>
+    <% q.hidden_field :review_id, :value => @review.id %>
+    <%= q.submit "Add Question" %>
+  <% end %>
+<% end %>
