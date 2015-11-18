@@ -1,23 +1,23 @@
-<h1>Name: <%= @project.project_name %></h1><br>
+<div class="page-header"><h1>Name: <%= @project.project_name %></h1></div><br>
 <h4>End Date:<%= @project.end_date %></h4><br>
 <h4>PPM ID:<%= @project.ppm_id %></h4><br>
 <br>
 
-<h1>Admins:<h1>
+<div class="page-header"><h1>Admins:</h1></div>
 <% @admins.each do |user| %>
   <h4><%= user.name %></h4>
   <br>
 <%end%>
 <br>
 
-<h1>Submitters:<h1>
+<div class="page-header"><h1>Submitters:</h1></div>
 <% @submitters.each do |user| %>
   <h4><%= user.name %></h4>
   <br>
 <%end%>
 <br>
 
-<h1>Approvers:<h1>
+<div class="page-header"><h1>Approvers:</h1></div>
 <% @approvers.each do |user| %>
   <h4><%= user.name %></h4>
   <br>
