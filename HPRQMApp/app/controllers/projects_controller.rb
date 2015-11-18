@@ -15,10 +15,10 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    #work is done in before_action
-    @ads = @project.admins.map { |connection| connection.user }
-    @apps = @project.approvers.map { |connection| connection.user }
-    @subs = @project.submitters.map { |connection| connection.user }
+    #@project done in before_action
+    @admins = @project.admins.map { |connection| connection.user }
+    @approvers = @project.approvers.map { |connection| connection.user }
+    @submitters = @project.submitters.map { |connection| connection.user }
   end
 
   def new
