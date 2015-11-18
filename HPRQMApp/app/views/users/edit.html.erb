@@ -1,1 +1,30 @@
-<h1> Edit User </h1>
+<h1> Edit <%= @user.name %></h1>
+
+<%= form_for(@user) do |u| %>
+  <% if @user.errors.any? %>
+    <h2><%= pluralize(Quser.error.count, "error") %> prohibited you from editing this user:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= u.label :f_name, 'First Name' %><br>
+  <%= u.text_field :f_name %><br>
+  <%= u.label :m_name, 'Middle Name' %><br>
+  <%= u.text_field :m_name %><br>
+  <%= u.label :l_name, 'Last Name' %><br>
+  <%= u.text_field :l_name %><br>
+  <%= u.label :employee_num, 'Employee Number' %><br>
+  <%= u.number_field :employee_num %><br>
+  <%= u.label :email, 'Email' %><br>
+  <%= u.email_field :email %><br>
+  <%= u.label :super_admin, "Make #{@user.name} a super admin?" %><br>
+  <%= u.radio_button :super_admin, "true" %> Super Admin<br>
+  <%= u.radio_button :super_admin, "false" %> Normal User<br>
+  <%= u.submit %>
+<% end %>
+        
+
+
+
