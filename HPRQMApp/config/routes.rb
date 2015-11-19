@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
   
-  get 'releases', to: 'releases#show'
+  get 'releases', to: 'releases#index'
   resources :questions
 
   # The priority is based upon order of creation: first created -> highest priority.
