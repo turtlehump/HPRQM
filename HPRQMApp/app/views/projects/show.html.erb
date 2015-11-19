@@ -4,10 +4,11 @@
 <table>
   <thead>
     <tr>
-      <th>Name</tr>
+      <th>Name</th>
       <th>SDLCM Release ID</th>
       <th>Start Date</th>
       <th>End Date</th>
+      <th>Edit</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,7 @@
           <td><%= release.sdlcm_release_id %></td>
           <td><%= release.start_date %></td>
           <td><%= release.end_date %></td>
+          <td><%= link_to 'Show', release_url(release) %></td>
           <td><%= link_to 'Edit', edit_release_path(release) %></td>
         </tr>
       <% end %>
@@ -26,7 +28,6 @@
 </table>
 <h3>Create New Release</h3>
 <%= render 'releases/form' %>
-<%= link_to 'Releases(not done)', @project %>
 
 <div class="page-header"><h1>Admins:</h1></div>
 <% @admins.each do |user| %>

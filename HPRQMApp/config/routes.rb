@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :admins, shallow: true
     resources :approvers, shallow: true
     resources :submitters, shallow: true
-    resources :releases, shallow: true
+    resources :releases, shallow: true do
+      resources :release_reviews
+    end
   end
   resources :reviews do
     resources :review_questions, shallow: true
