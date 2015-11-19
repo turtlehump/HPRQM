@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :approvers, shallow: true
     resources :submitters, shallow: true
     resources :releases, shallow: true do
-      resources :release_reviews
+      resources :release_reviews, shallow: true
     end
   end
   resources :reviews do
@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       get 'questions'
     end
   end
+  
+  get 'releases', to: 'releases#show'
   resources :questions
 
   # The priority is based upon order of creation: first created -> highest priority.
