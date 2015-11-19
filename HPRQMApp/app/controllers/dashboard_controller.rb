@@ -1,8 +1,8 @@
 class DashboardController < ApplicationController
   def index
-    @num_projects = 1
-    @num_reviews = 1
-    @num_questions = 82462
+    @num_projects = Project.all.count
+    @num_reviews = Review.all.count
+    @num_questions = Question.all.count
     @num_users = User.all.count
   end
 end
