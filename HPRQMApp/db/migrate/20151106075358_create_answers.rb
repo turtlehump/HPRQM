@@ -2,6 +2,8 @@ class CreateAnswers < ActiveRecord::Migration
   def change
     create_table :answers do |t|
       t.column :ans_type, :integer, default: 0, null: false
+      t.boolean :submitted, default: false
+      t.boolean :approved
       t.string :str
       t.integer :int
       t.boolean :bool

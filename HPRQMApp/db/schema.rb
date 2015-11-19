@@ -24,15 +24,17 @@ ActiveRecord::Schema.define(version: 20151106075358) do
   add_index "admins", ["user_id"], name: "index_admins_on_user_id"
 
   create_table "answers", force: :cascade do |t|
-    t.integer  "ans_type",    default: 0, null: false
+    t.integer  "ans_type",    default: 0,     null: false
+    t.boolean  "submitted",   default: false
+    t.boolean  "approved"
     t.string   "str"
     t.integer  "int"
     t.boolean  "bool"
     t.integer  "question_id"
     t.integer  "release_id"
     t.integer  "user_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"

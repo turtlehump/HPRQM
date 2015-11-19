@@ -2,6 +2,8 @@
 <h4>End Date:<%= @project.end_date %></h4><br>
 <h4>PPM ID:<%= @project.ppm_id %></h4><br>
 
+<%= link_to 'Releases', project_releases_path(@project) %>
+
 <div class="page-header"><h1>Admins:</h1></div>
 <% @admins.each do |user| %>
   <h4><%= user.name %></h4>
