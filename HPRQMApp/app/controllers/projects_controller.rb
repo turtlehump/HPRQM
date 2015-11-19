@@ -19,6 +19,8 @@ class ProjectsController < ApplicationController
     @admins = @project.admins.map { |connection| connection.user }
     @approvers = @project.approvers.map { |connection| connection.user }
     @submitters = @project.submitters.map { |connection| connection.user }
+    @project_releases = @project.releases
+    @release = @project.releases.new
   end
 
   def new

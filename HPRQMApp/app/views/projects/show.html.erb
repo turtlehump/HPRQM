@@ -1,8 +1,32 @@
 <div class="page-header"><h1>Name: <%= @project.project_name %></h1></div><br>
 <h4>End Date:<%= @project.end_date %></h4><br>
 <h4>PPM ID:<%= @project.ppm_id %></h4><br>
-
-<%= link_to 'Releases', project_releases_path(@project) %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</tr>
+      <th>SDLCM Release ID</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @project.releases.each do |release| %>
+      <% if not release.new_record? %>
+        <tr>
+          <td><%= release.name %></td>
+          <td><%= release.sdlcm_release_id %></td>
+          <td><%= release.start_date %></td>
+          <td><%= release.end_date %></td>
+          <td><%= link_to 'Edit', edit_release_path(release) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<h3>Create New Release</h3>
+<%= render 'releases/form' %>
+<%= link_to 'Releases(not done)', @project %>
 
 <div class="page-header"><h1>Admins:</h1></div>
 <% @admins.each do |user| %>

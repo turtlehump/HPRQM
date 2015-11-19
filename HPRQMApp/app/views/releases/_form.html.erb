@@ -1,4 +1,4 @@
-<%= form_for(@release) do |f| %>
+<%= form_for([@project,@release]) do |f| %>
   <% if @release.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@release.errors.count, "error") %> prohibited this release from being saved:</h2>
@@ -12,6 +12,14 @@
   <% end %>
 
   <div class="actions">
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :sdlcm_release_id %>
+    <%= f.text_field :sdlcm_release_id %><br>
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date %><br>
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date %><br>
     <%= f.submit %>
   </div>
 <% end %>
