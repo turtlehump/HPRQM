@@ -5,4 +5,5 @@
 
 <%= link_to 'View', @review %><br>
 <%= link_to 'All Reviews', reviews_path %><br>
-<%= link_to 'Delete (broken)', reviews_path(@review.id), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+<%= link_to 'Delete', @review, method: :delete, 
+      data: { confirm: 'Are you sure?' } %><br>
