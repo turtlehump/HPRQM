@@ -8,6 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :l_name, null: false
       t.integer :employee_num
       t.boolean :super_admin, null: false, default: false
+      t.column :role, :integer, null: false
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
