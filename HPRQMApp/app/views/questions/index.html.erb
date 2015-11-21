@@ -14,7 +14,7 @@
   <tbody>
     <tr>
       <% @questions.each do |q| %>
-        <td><%= q.question %> </td>
+        <td><%= q.str %> </td>
         <td><%= q.ans_type %> </td>
         <td><%= link_to "Show", q %> </td>
         <td><%= link_to "Edit", edit_question_path(q) %> </td>

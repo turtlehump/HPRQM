@@ -33,7 +33,7 @@ int main()
   cout << ")" << endl;
   cout << endl;
 
-  cout << "admins = Admin.create(" << endl;
+  cout << "project_users = ProjectUser.create(" << endl;
   cout << "  [" << endl;
   for(int i = 1; i <= num_users; i++)
   {
@@ -45,33 +45,6 @@ int main()
   cout << "  ]" << endl;
   cout << ")" << endl;
   cout << endl;
-
-  cout << "submitters = Submitter.create(" << endl;
-  cout << "  [" << endl;
-  for(int i = 1; i <= num_users; i++) //this one is different
-  {
-    cout << "    { project_id: " << i << ", user_id: " << (i + 1) % num_users << " }," << endl;
-    cout << "    { project_id: " << i << ", user_id: " << (i + 2) % num_users << " }";
-    if(i <= num_users - 1)
-      cout << ",";
-    cout << endl;
-  }
-  cout << "  ]" << endl;
-  cout << ")" << endl;
-  cout << endl;
-
-  cout << "approvers = Approver.create(" << endl;
-  cout << "  [" << endl;
-  for(int i = 1; i <= num_users; i++) //this one is different
-  {
-    cout << "    { project_id: " << i << ", user_id: " << (i + 3) % num_users << " }," << endl;
-    cout << "    { project_id: " << i << ", user_id: " << (i + 4) % num_users << " }";
-    if(i <= num_users - 1)
-      cout << ",";
-    cout << endl;
-  }
-  cout << "  ]" << endl;
-  cout << ")" << endl;
 
   cout << "reviews = Review.create(" << endl;
   cout << "  [" << endl;
@@ -107,9 +80,11 @@ int main()
 
   cout << "questions = Question.create(" << endl;
   cout << "  [" << endl;
-  cout << "    { question: \"Whats your name?\" }," << endl;
-  cout << "    { question: \"Whats your age?\" }," << endl;
-  cout << "    { question: \"Are you a guy?\" }" << endl;
+  cout << "    { str: \"Whats your name?\" }," << endl;
+  cout << "    { str: \"Whats your age?\" }," << endl;
+  cout << "    { str: \"Are you a guy?\" }," << endl;
+  cout << "    { str: \"Some important question that needs to be asked?\" }," << endl;
+  cout << "    { str: \"What is the square root of green?\" }" << endl;
   cout << "  ]" << endl;
   cout << ")" << endl;
 

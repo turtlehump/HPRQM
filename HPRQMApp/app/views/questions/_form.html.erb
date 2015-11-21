@@ -2,8 +2,8 @@
   <% if @question.errors.any? %>
     <h2><%= pluralize(@question.errors.count, "error") %></h2>
   <% end %>
-  <%= q.label :question %><br>
-  <%= q.text_area :question %><br>
+  <%= q.label :str, 'Question' %><br>
+  <%= q.text_area :str %><br>
   <%= q.label :ans_type, "Answer Type" %><br>
   <%= q.radio_button :ans_type, 1 %> type 1<br>
   <%= q.radio_button :ans_type, 2 %> type 2<br>

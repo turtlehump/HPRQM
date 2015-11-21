@@ -8,7 +8,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :l_name, null: false
       t.integer :employee_num
       t.boolean :super_admin, null: false, default: false
-      t.column :role, :integer, null: false
+      t.column :role, :integer #, null: false
+      #no null false so a super admin can assign the role
+      #unless we come up with a diffrent way.
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
