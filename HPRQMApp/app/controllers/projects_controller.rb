@@ -7,18 +7,22 @@ class ProjectsController < ApplicationController
     if @user.super_admin
       @user_projs = @projects
     else
-      @user_ad_projs = @user.admins.map { |connection| connection.project }
-      @user_ap_projs = @user.approvers.map { |connection| connection.project }
-      @user_sub_projs = @user.submitters.map { |connection| connection.project }
-      @user_projs = @user_ad_projs + @user_ap_projs + @user_sub_projs
+      #TODO we will have to redo this stuff with the new method.
+
+      #@user_ad_projs = @user.admins.map { |connection| connection.project }
+      #@user_ap_projs = @user.approvers.map { |connection| connection.project }
+      #@user_sub_projs = @user.submitters.map { |connection| connection.project }
+      #@user_projs = @user_ad_projs + @user_ap_projs + @user_sub_projs
     end
   end
 
   def show
+    #TODO we will have to redo this stuff with the new method.
+
     #@project done in before_action
-    @admins = @project.admins.map { |connection| connection.user }
-    @approvers = @project.approvers.map { |connection| connection.user }
-    @submitters = @project.submitters.map { |connection| connection.user }
+    #@admins = @project.admins.map { |connection| connection.user }
+    #@approvers = @project.approvers.map { |connection| connection.user }
+    #@submitters = @project.submitters.map { |connection| connection.user }
     @project_releases = @project.releases
     @release = @project.releases.new
   end

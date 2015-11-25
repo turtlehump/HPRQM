@@ -4,10 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :admins, dependent: :destroy
-  has_many :approvers, dependent: :destroy
-  has_many :submitters, dependent: :destroy
-
   enum role: [ :admin, :approver, :submitter ]
 
   has_many :project_users, dependent: :destroy
@@ -16,7 +12,8 @@ class User < ActiveRecord::Base
   has_many :answers  #dont delete someones answers just because they no longer work there...
   # not sure if this will cause bugs if this user has answered questions and then gets deleted
   # how will the answer know what the name of its creator is?
-  
+  # I dont think it will need it, it would just be an answer.
+
 
   #this function will get the user the correct projects for their given role, @user.projects
   def projects
