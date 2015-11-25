@@ -8,7 +8,7 @@
     </ul>
   <% end %>
   <% if @review_question_add.count > 0 %>
-    <%= q.select :question_id, options_from_collection_for_select(@review_question_add, 'id', 'question') %>
+    <%= q.select :question_id, options_from_collection_for_select(@review_question_add, 'id', 'str') %>
     <% q.hidden_field :review_id, :value => @review.id %>
     <%= q.submit "Add Question" %>
   <% end %>

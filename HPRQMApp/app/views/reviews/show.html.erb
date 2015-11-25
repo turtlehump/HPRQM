@@ -20,7 +20,7 @@
     <% @review.review_questions.each do |question| %>
       <tr>
       <% if not question.new_record? %>
-        <td><%= question.question.question %> </td>
+         <td><%= question.question.str %></td>
         <% if current_user.super_admin %>
           <td><%= link_to "Remove", question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
