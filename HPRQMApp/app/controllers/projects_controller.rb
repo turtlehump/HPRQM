@@ -11,20 +11,18 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    #grab the project_users that are working on the project
     users = @project.project_users
-    #grab the project user admins
-    #TODO @admins nearly works
-    @admins = users.map { |u| u if u.user.role == :admin }.compact
-    @add_admin = User.admin - @project.users.admin
+    @admins = Array.new
+    users.each do |u| if u.admin? then @admins.push u end end
+    @approvers = Array.new
+    users.each do |u| if u.approver? then @approvers.push u end end
+    @submitters = Array.new
+    users.each do |u| if u.submitter? then @submitters.push u end end
 
-    #grab the project user approvers
-    #TODO @approvers nearly works
-    @approvers = users.map { |u| u if u.user.role == :approver }.compact
+    #grab potential new project_users
+    @add_admins = User.admin - @project.users.admin
     @add_approvers = User.approver - @project.users.approver
-
-    #grab the project user submitters
-    #TODO @submitters nearly works
-    @submitters = users.map { |u| u if u.user.role == :submitter }.compact
     @add_submitters = User.submitter - @project.users.submitter
 
     #not sure if this line is needed
