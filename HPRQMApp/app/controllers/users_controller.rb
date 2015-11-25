@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def show
@@ -32,6 +32,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:f_name, :m_name, :l_name, :employee_num, :email, :super_admin)
+    params.require(:user).permit(:f_name, :m_name, :l_name, :employee_num, :email, :super_admin, :role)
   end
 end

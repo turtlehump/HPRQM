@@ -19,13 +19,17 @@
   <%= u.number_field :employee_num %><br>
   <%= u.label :email, 'Email' %><br>
   <%= u.email_field :email %><br>
+  <%= u.label :role, "User role for #{@user.name}." %><br>
+  <%= u.radio_button :role, :admin %> Admin<br>
+  <%= u.radio_button :role, :approver %> Approver<br>
+  <%= u.radio_button :role, :submitter %> Submitter<br>
   <%= u.label :super_admin, "Make #{@user.name} a super admin?" %><br>
   <p>With great power comes great responsibility.<p>
   <%= u.radio_button :super_admin, "true" %> Super Admin<br>
   <%= u.radio_button :super_admin, "false" %> Normal User<br>
   <%= u.submit %>
 <% end %>
-        
+
 
 
 

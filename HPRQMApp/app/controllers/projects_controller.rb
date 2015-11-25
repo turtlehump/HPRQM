@@ -9,6 +9,9 @@ class ProjectsController < ApplicationController
     else
       #TODO we will have to redo this stuff with the new method.
 
+      #I think this will work
+      #@user_admin_projs = @user.project_users.map { |p| p.project }
+      #The old stuff for refference
       #@user_ad_projs = @user.admins.map { |connection| connection.project }
       #@user_ap_projs = @user.approvers.map { |connection| connection.project }
       #@user_sub_projs = @user.submitters.map { |connection| connection.project }
@@ -17,12 +20,9 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    #TODO we will have to redo this stuff with the new method.
-
-    #@project done in before_action
-    #@admins = @project.admins.map { |connection| connection.user }
-    #@approvers = @project.approvers.map { |connection| connection.user }
-    #@submitters = @project.submitters.map { |connection| connection.user }
+    @admins = @project.users.where( role: :admin )
+    @approvers = @project.users.where( role: :approver )
+    @submitters = @project.users.where( role: :submitter )
     @project_releases = @project.releases
     @release = @project.releases.new
   end

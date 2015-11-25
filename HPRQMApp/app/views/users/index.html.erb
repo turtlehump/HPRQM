@@ -9,6 +9,7 @@
       <th>Last</th>
       <th>EMP_ID</th>
       <th>Email</th>
+      <th>Role</th>
       <th>Admin</th>
       <th>Show</th>
       <th>Edit</th>
@@ -22,6 +23,7 @@
         <td><%= user.l_name %></td>
         <td><%= user.employee_num %></td>
         <td><%= user.email %></td>
+        <td><%= user.role %></td>
         <td><%= user.super_admin %></td>
         <td><%= link_to "Show", user %></td>
         <td><%= link_to "Edit", edit_user_path(user) %></td>

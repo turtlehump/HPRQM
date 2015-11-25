@@ -29,7 +29,6 @@
 <h3>Create New Release</h3>
 <%= render 'releases/form' %>
 
-<% if false #TODO This code does not work now and needs to be fixed %>
 <div class="page-header"><h1>Admins:</h1></div>
 <% @admins.each do |user| %>
   <h4><%= user.name %></h4>
@@ -46,4 +45,3 @@
 <% @approvers.each do |user| %>
   <h4><%= user.name %></h4>
 <%end%>
-<% end %>
