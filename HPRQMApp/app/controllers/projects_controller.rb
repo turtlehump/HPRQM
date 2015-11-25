@@ -2,42 +2,30 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = Project.all
     @user = current_user
     if @user.super_admin
-      @user_projs = @projects
+      @user_projects = Project.all
     else
-      #TODO we will have to redo this stuff with the new method.
-
-      #I think this will work but i dont want to test it yet
-      #@user_admin_projs = @user.project_users.map { |p| p.project }
-
-      #The old stuff for refference
-      #@user_ad_projs = @user.admins.map { |connection| connection.project }
-      #@user_ap_projs = @user.approvers.map { |connection| connection.project }
-      #@user_sub_projs = @user.submitters.map { |connection| connection.project }
-      #@user_projs = @user_ad_projs + @user_ap_projs + @user_sub_projs
+      @user_projects = @user.projects
     end
   end
 
   def show
     users = @project.project_users
     #grab the project user admins
-    @admins = users.each { |u| u if u.user.role == :admin }
-
-    #TODO no matter what i do, i cant get just the admins that
-    #are not already assigned to the project.
-    #@add_admin = User.all.each { |u| u if u.role == :admin }
-    @add_admin = User.where( 'role == ?', :admin )
-    #@add_admin = User.admin - @project.users.where( role: :admin )
+    #TODO @admins nearly works
+    @admins = users.map { |u| u if u.user.role == :admin }.compact
+    @add_admin = User.admin - @project.users.admin
 
     #grab the project user approvers
-    @approvers = users.each { |u| u if u.user.role == :approver }
-    #TODO get new potential approvers
+    #TODO @approvers nearly works
+    @approvers = users.map { |u| u if u.user.role == :approver }.compact
+    @add_approvers = User.approver - @project.users.approver
 
     #grab the project user submitters
-    @submitters = users.each { |u| u if u.user.role == :submitter }
-    #TODO get new potential submitters
+    #TODO @submitters nearly works
+    @submitters = users.map { |u| u if u.user.role == :submitter }.compact
+    @add_submitters = User.submitter - @project.users.submitter
 
     #not sure if this line is needed
     @project_user = @project.project_users.new

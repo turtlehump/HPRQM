@@ -1,6 +1,7 @@
 <div class="page-header"><h1> Projects </h1></div>
 <br>
 
+<div class="container">
 <% if @user.super_admin %>
   <table class="table table-hover">
     <thead>
@@ -11,72 +12,33 @@
       </tr>
     </thead>
     <tbody>
-      <% @user_projs.each do |project| %>	
-      <tr>
-        <td> <%= project.project_name %> </td>
-        <td> <%= link_to "Show", project %> </td>
-        <td> <%= link_to "Edit", edit_project_path(project) %> </td>
-      </tr>
+      <% @user_projects.each do |project| %>
+        <tr>
+          <td> <%= project.project_name %> </td>
+          <td> <%= link_to "Show", project %> </td>
+          <td> <%= link_to "Edit", edit_project_path(project) %> </td>
+        </tr>
       <% end %>
     </tbody>
   </table>
 <% else %>
-  <div class="container">
-    <h1>Projects</h1>
-    <p>Projects you are tied to:</p>            
-    <br>
-    <h4> PROJECTS YOU ARE AN ADMIN IN </h4>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Project Name:</th>
-          <th>Show:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @user_ad_projs.each do |project| %>	
+  <p>Projects you are tied to:</p><br>
+  <h4> PROJECTS YOU HAVE <%= @user.role.upcase %> PRIVLEGES IN </h4>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Project Name:</th>
+        <th>Show:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user_projects.each do |project| %>
         <tr>
           <td> <%= project.project_name %> </td>
           <td> <%= link_to "Show", project %> </td>
         </tr>
-        <% end %>
-      </tbody>
-    </table>
-  
-    <h4> PROJECTS YOU ARE AN APPROVER IN </h4>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Project Name:</th>
-          <th>Show:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @user_ap_projs.each do |project| %>	
-        <tr>
-          <td> <%= project.project_name %> </td>
-          <td> <%= link_to "Show", project %> </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  
-    <h4> PROJECTS YOU ARE A SUBMITTER IN </h4>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Project Name:</th>
-          <th>Show:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @user_sub_projs.each do |project| %>	
-        <tr>
-          <td> <%= project.project_name %> </td>
-          <td> <%= link_to "Show", project %> </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>
+</div>

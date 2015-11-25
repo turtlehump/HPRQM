@@ -7,9 +7,9 @@
     <% end %>
     </ul>
   <% end %>
-  <% if @add_admin.count > 0 %>
-    <%= user.select :user_id, options_from_collection_for_select(@add_admin, 'id', 'credentials') %>
+  <% if @add_submitters.count > 0 %>
+    <%= user.select :user_id, options_from_collection_for_select(@add_submitters, 'id', 'credentials') %>
     <%= user.hidden_field :project_id, :value => @project.id %>
-    <%= user.submit "Add Admin" %>
+    <%= user.submit "Add Subbmitter" %>
   <% end %>
 <% end %>
