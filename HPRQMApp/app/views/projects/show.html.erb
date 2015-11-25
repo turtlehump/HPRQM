@@ -30,18 +30,19 @@
 <%= render 'releases/form' %>
 
 <div class="page-header"><h1>Admins:</h1></div>
-<% @admins.each do |user| %>
-  <h4><%= user.name %></h4>
-<%end%>
+<%= render 'project_admins' %>
+<%= render 'project_users/admins_form' %>
 <br>
 
 <div class="page-header"><h1>Submitters:</h1></div>
-<% @submitters.each do |user| %>
-  <h4><%= user.name %></h4>
-<%end%>
+<% if false %>
+<%= render 'project_submitters' %>
+<%= render 'project_users/submitters_form' %>
+<% end %>
 <br>
 
 <div class="page-header"><h1>Approvers:</h1></div>
-<% @approvers.each do |user| %>
-  <h4><%= user.name %></h4>
-<%end%>
+<% if false %>
+<%= render 'project_approvers' %>
+<%= render 'project_users/approvers_form' %>
+<% end %>

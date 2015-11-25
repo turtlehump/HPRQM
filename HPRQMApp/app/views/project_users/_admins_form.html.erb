@@ -1,0 +1,16 @@
+<%= form_for([@project, @project_user]) do |user| %>
+  <% if @project_user.errors.any? %>
+    <h2><%= pluralize(@project_user.errors.count, "error") %> prohibited you from adding a use.</h2>
+    <ul>
+    <% @project_user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
+  <% if @add_admin.count > 0 %>
+    <%= user.select :user_id, options_from_collection_for_select(@add_admin, 'id', 'credentials') %>
+    <%= user.hidden_field :project_id, :value => @project.id %>
+    <%= user.submit "Add Admin" %>
+  <% end %>
+<% end %>
+

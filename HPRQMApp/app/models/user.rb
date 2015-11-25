@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
 
   enum role: [ :admin, :approver, :submitter ]
 
+  #so that a user can view the projects that they are tied to
+  #user.projects
+  has_many :projects, through: :project_users
+
   has_many :project_users, dependent: :destroy
   #this (^) lines main functionality is the dependent: :destroy, not to create a @user.project_users
 
@@ -28,6 +32,10 @@ class User < ActiveRecord::Base
 
   def name
     f_name + " " + l_name
+  end
+
+  def credentials
+    name + " " + email
   end
 
 end

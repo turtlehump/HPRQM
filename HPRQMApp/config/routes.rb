@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  
+
   root to: 'dashboard#index'
   devise_for :users, path_prefix: 'hp'
   resources :users
-  resources :projects do 
-    resources :admins, shallow: true
-    resources :approvers, shallow: true
-    resources :submitters, shallow: true
+  resources :projects do
+    #resources :admins, shallow: true
+    #resources :approvers, shallow: true
+    #resources :submitters, shallow: true
+    resources :project_users, shallow: true
     resources :releases, shallow: true do
       resources :release_reviews, shallow: true
     end
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
       get 'questions'
     end
   end
-  
+
   get 'releases', to: 'releases#index'
   resources :questions
 

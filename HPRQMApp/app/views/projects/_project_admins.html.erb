@@ -1,0 +1,12 @@
+<table>
+  <body>
+  <% @admins.each do |u| %>
+    <% if not u.new_record? %>
+      <tr>
+        <td><%= u.user.credentials %></td>
+        <td><%= link_to 'Remove', u, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>

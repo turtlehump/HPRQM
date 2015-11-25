@@ -1,0 +1,13 @@
+<table>
+  <body>
+  <% @submitters.each do |a| %>
+    <% if not project_user.new_record? %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Remove', user.project_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>

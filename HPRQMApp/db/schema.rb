@@ -13,16 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20151119012727) do
 
-  create_table "admins", force: :cascade do |t|
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "admins", ["project_id"], name: "index_admins_on_project_id"
-  add_index "admins", ["user_id"], name: "index_admins_on_user_id"
-
   create_table "answers", force: :cascade do |t|
     t.integer  "ans_type",    default: 0,     null: false
     t.boolean  "submitted",   default: false
@@ -40,16 +30,6 @@ ActiveRecord::Schema.define(version: 20151119012727) do
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
   add_index "answers", ["release_id"], name: "index_answers_on_release_id"
   add_index "answers", ["user_id"], name: "index_answers_on_user_id"
-
-  create_table "approvers", force: :cascade do |t|
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "approvers", ["project_id"], name: "index_approvers_on_project_id"
-  add_index "approvers", ["user_id"], name: "index_approvers_on_user_id"
 
   create_table "dashboards", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -120,16 +100,6 @@ ActiveRecord::Schema.define(version: 20151119012727) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-  create_table "submitters", force: :cascade do |t|
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "submitters", ["project_id"], name: "index_submitters_on_project_id"
-  add_index "submitters", ["user_id"], name: "index_submitters_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "f_name",                                 null: false

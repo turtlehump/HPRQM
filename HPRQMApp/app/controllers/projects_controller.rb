@@ -9,8 +9,9 @@ class ProjectsController < ApplicationController
     else
       #TODO we will have to redo this stuff with the new method.
 
-      #I think this will work
+      #I think this will work but i dont want to test it yet
       #@user_admin_projs = @user.project_users.map { |p| p.project }
+
       #The old stuff for refference
       #@user_ad_projs = @user.admins.map { |connection| connection.project }
       #@user_ap_projs = @user.approvers.map { |connection| connection.project }
@@ -20,9 +21,28 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @admins = @project.users.where( role: :admin )
-    @approvers = @project.users.where( role: :approver )
-    @submitters = @project.users.where( role: :submitter )
+    users = @project.project_users
+    #grab the project user admins
+    @admins = users.each { |u| u if u.user.role == :admin }
+
+    #TODO no matter what i do, i cant get just the admins that
+    #are not already assigned to the project.
+    #@add_admin = User.all.each { |u| u if u.role == :admin }
+    @add_admin = User.where( 'role == ?', :admin )
+    #@add_admin = User.admin - @project.users.where( role: :admin )
+
+    #grab the project user approvers
+    @approvers = users.each { |u| u if u.user.role == :approver }
+    #TODO get new potential approvers
+
+    #grab the project user submitters
+    @submitters = users.each { |u| u if u.user.role == :submitter }
+    #TODO get new potential submitters
+
+    #not sure if this line is needed
+    @project_user = @project.project_users.new
+
+    #for project releases
     @project_releases = @project.releases
     @release = @project.releases.new
   end
