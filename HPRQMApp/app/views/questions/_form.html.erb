@@ -2,10 +2,12 @@
   <% if @question.errors.any? %>
     <h2><%= pluralize(@question.errors.count, "error") %></h2>
   <% end %>
-  <%= q.label :str, 'Question' %><br>
+  <%= q.label :str, 'Question:' %><br>
   <%= q.text_area :str %><br>
-  <p>The question type will need to be expanded a little to reflect the actual question types available.<br>
-  <%= q.label :ans_type, "Answer Type" %><br>
+  <br>
+  <p>The question type will need to be expanded a little to reflect the actual question types available.
+  <br><br>
+  <%= q.label :ans_type, "Answer Type:" %><br>
   <%= q.radio_button :ans_type, :string %> String<br>
   <%= q.radio_button :ans_type, :int %> Integer<br>
   <%= q.radio_button :ans_type, :bool %> Boolean<br>

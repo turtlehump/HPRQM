@@ -2,16 +2,27 @@
   <div class="page-header">
     <h1>Dashboard</h1>
   </div>
+  <br>
 
-  <%= link_to "Projects", projects_path %>
-  <span class="badge"><%= @num_projects %></span><br>
-  <%= link_to "Releases", projects_path %>
-  <span class="badge"><%= @num_releases %></span><br>
-  <%= link_to "Reviews", reviews_path %>
-  <span class="badge"><%= @num_reviews %></span><br>
-  <%= link_to "Questions", questions_path %>
-  <span class="badge"><%= @num_questions %></span><br>
-  <%= link_to "Users", users_path %>
-  <span class="badge"><%= @num_users %></span><br>
+  <%= link_to "Projects", projects_path %><br>
+
+  <%= link_to "Releases", releases_path %><br>
+
+  <%= link_to "Reviews", reviews_path %><br>
+  <div class="progress">
+    <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
+      Completed
+    </div>
+    <div class="progress-bar progress-bar-warning" role="progressbar" style="width:10%">
+      In Progress
+    </div>
+    <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+      Rejected
+    </div>
+  </div>
+
+  <%= link_to "Questions", questions_path %><br>
+
+  <%= link_to "Users", users_path %><br><br>
 
 </div>

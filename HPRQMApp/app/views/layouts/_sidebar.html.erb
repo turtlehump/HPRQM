@@ -9,10 +9,23 @@
 	      <li><a href="javascript:history.back()" class="glyphicon glyphicon-arrow-left"> Back </a></li><br>
 
 	      <% if current_page?(root_path) %>
-		<li><%= link_to "Projects", projects_path %></a></li>
-		<li><%= link_to "Reviews", reviews_path %></a></li>
-		<li><%= link_to "Releases", root_path %></a></li>
-		<li><%= link_to "Questions", questions_path %></a></li>
+
+		<li><%= link_to(projects_path) do %>
+                Projects  <span class="badge"><%= @num_projects %></span>
+                <% end %> </a></li>
+		
+                <li><%= link_to(releases_path) do %>
+                Releases  <span class="badge"><%= @num_releases %></span>
+                <% end %></a></li>
+
+                <li><%= link_to(reviews_path) do %>
+                Reviews  <span class="badge"><%= @num_reviews %></span>
+                <% end %></a></li>
+
+                <li><%= link_to(questions_path) do %>
+                Questions  <span class="badge"><%= @num_questions %></span>
+                <% end %></a></li>
+
 	      <% end %>
 
 	      <% if current_page?(projects_path) %>
@@ -26,6 +39,13 @@
 	      <% if current_page?(questions_path) %>
 		<li><%= link_to "Create a Question", new_question_path %></a></li>
 	      <% end %>
+
+              <% if false %>
+	      <% if current_page?(question_path(:id)) %>
+		<li><%= link_to "Edit Question", edit_question_path(@question) %></a></li>
+	      <% end %>
+              <% end %>
+
 
 	      <% if current_user.super_admin %>
 	        <% if current_page?(users_path) %>
