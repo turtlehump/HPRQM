@@ -11,9 +11,9 @@ class ReleasesController < ApplicationController
   # GET /releases/1.json
   def show
     #@project = Project.find params[:project_id]
-    #@release_reviews = @release.reviews
-    #@release_review =@release.release_reviews.new
-    #@release_review_add = Review.all - @release_reviews
+    @release_reviews = @release.reviews
+    @release_review =@release.release_reviews.new
+    @release_review_add = Review.all# - @release_reviews
   end
 
   # GET /releases/new

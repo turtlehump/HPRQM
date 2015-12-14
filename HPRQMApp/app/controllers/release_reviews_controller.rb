@@ -17,7 +17,7 @@ class ReleaseReviewsController < ApplicationController
     @release_review = @release.release_reviews.new(release_review_params)
 
     if @release_review.save
-      redirect_to project_release_url(@release), notice: 'Added new Review.'
+      redirect_to project_releases_url(@release), notice: 'Added new Review.'
     else
       render :new
     end

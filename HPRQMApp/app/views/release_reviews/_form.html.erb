@@ -1,5 +1,5 @@
 <%= form_for([@release, @release_review]) do |r| %>
-  <% if @release_review.errors.andy? %>
+  <% if @release_review.errors.any? %>
     <h2><%= pluralize(@release_review.errors.count, "error") %> prohibited you from addind a question.</h2>
     <ul>
       <% @release_review.errors.full_messages.each do |message| %>
@@ -8,7 +8,7 @@
     </ul>
   <% end %>
   <% if @release_review_add.count > 0 %>
-    <%= r.select :review_id, options_from_collection_for_select(@release_review_add, 'id', 'name') %>
+    <%= r.select :review_id, options_from_collection_for_select(@release_review_add, 'id', 'review_name') %>
     <% r.hidden_field :release_id, :value => @release.id %>
     <%= r.submit "Add Review" %>
   <% end %>
