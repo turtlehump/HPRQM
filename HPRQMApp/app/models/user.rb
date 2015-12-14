@@ -6,9 +6,6 @@ class User < ActiveRecord::Base
 
   enum role: [ :admin, :approver, :submitter ]
 
-  #so that a user can view the projects that they are tied to
-  #user.projects
-  has_many :projects, through: :project_users
 
   has_many :project_users, dependent: :destroy
   #this (^) lines main functionality is the dependent: :destroy, not to create a @user.project_users
@@ -18,6 +15,9 @@ class User < ActiveRecord::Base
   # how will the answer know what the name of its creator is?
   # I dont think it will need it, it would just be an answer.
 
+  #so that a user can view the projects that they are tied to
+  #user.projects
+  has_many :projects, through: :project_users
 
   #this function will get the user the correct projects for their given role, @user.projects
   def projects
